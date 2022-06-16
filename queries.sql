@@ -23,16 +23,24 @@
 --TRANSACTION SECTION--
 BEGIN TRANSACTION;
 UPDATE animals SET species = 'unspecified';
+SELECT * FROM animals;
 ROLLBACK;
+SELECT * FROM animals;
 
 BEGIN TRANSACTION;
 UPDATE animals SET species = 'digimon' WHERE name LIKE '%mon%';
 UPDATE animals SET species = 'pokemon' WHERE species = 'unspecified';
+SELECT * FROM animals;
 COMMIT;
+SELECT * FROM animals;
+
 
 BEGIN TRANSACTION;
 DELETE * FROM animals;
+SELECT * FROM animals;
 ROLLBACK;
+SELECT * FROM animals;
+
 
 BEGIN TRANSACTION;
 DELETE FROM animals WHERE date_of_birth > 2022-01-01;
@@ -66,4 +74,4 @@ GROUP BY species;
 
 -- What is the average number of escape attempts per animal type of those born between 1990 and 2000?
 SELECT species, AVG(escape_attempts) FROM animals WHERE date_of_birth
-BETWEEN '1990-01-01' AND '2000-01-01' GROUP BY species;
+BETWEEN '1990-01-01' AND '2000-12-31' GROUP BY species;
