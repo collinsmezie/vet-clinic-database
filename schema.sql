@@ -6,5 +6,10 @@ CREATE TABLE animals(
    date_of_birth  DATE    NOT NULL,
    escape_attempts INT    NOT NULL,
    neutered       BOOLEAN NOT NULL,
-   weight_kg      DECIMAL NOT NULL
+   weight_kg      DECIMAL NOT NULL,
 );
+
+
+-- ADD species column to animals table schema
+
+ALTER TABLE animals ADD species VARCHAR;
