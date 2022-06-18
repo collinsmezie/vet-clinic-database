@@ -67,3 +67,30 @@ WHERE name NOT LIKE '%mon';
 
 ALTER TABLE animals 
 DROP COLUMN id;
+
+
+---------------------------------------------------------------------------------------------------------------------- (edited) 
+                                             DAY 4
+
+-- Create a table named vets with the following columns:
+CREATE TABLE vets (
+    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY NOT NULL,
+    name VARCHAR(50),
+    age INT,
+    date_of_graduation DATE
+);
+-- Create a "join table" called specializations
+CREATE TABLE specializations (
+   vet_id INT,
+   species_id INT ,
+   FOREIGN KEY (vet_id) REFERENCES vets(id),
+   FOREIGN KEY (species_id) REFERENCES species(id)
+);
+-- Create a "join table" called visits
+CREATE TABLE visits (
+   animal_id INT,
+   vet_id INT ,
+   date_of_visit DATE,
+   FOREIGN KEY (animal_id) REFERENCES animals(id),
+   FOREIGN KEY (vet_id) REFERENCES vetS(id)
+);
