@@ -25,13 +25,11 @@ CREATE TABLE species(
 
 --create owners table
 CREATE TABLE owners(
-   id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY NOT NULL,
+   animal_owner_id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY NOT NULL,
    full_name  VARCHAR  NOT NULL,
-   age        INT  NOT NULL
 );
-
--- ALTER TABLE owners
--- RENAME COLUMN id TO animal_owner_id;
+--Modify owners table
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
 
 
 -- Make sure that id is set as autoincremented PRIMARY KEY
@@ -67,6 +65,9 @@ WHERE name NOT LIKE '%mon';
 
 ALTER TABLE animals 
 DROP COLUMN id;
+
+
+
 
 
 ---------------------------------------------------------------------------------------------------------------------- (edited) 
