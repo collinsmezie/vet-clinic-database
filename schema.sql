@@ -99,6 +99,6 @@ CREATE TABLE visits (
 ----------------------------------------------------------------------------------------------
 
                                      ---WEEK 2 -- DAY 1 
-  CREATE INDEX ON visits (animal_id); 
+  CREATE INDEX ON visits (animal_id);
   CREATE INDEX ON visits (vet_id),
   CREATE INDEX ON owners (email);                                   
