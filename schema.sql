@@ -25,13 +25,11 @@ CREATE TABLE species(
 
 --create owners table
 CREATE TABLE owners(
-   id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY NOT NULL,
+   animal_owner_id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY NOT NULL,
    full_name  VARCHAR  NOT NULL,
-   age        INT  NOT NULL
 );
-
--- ALTER TABLE owners
--- RENAME COLUMN id TO animal_owner_id;
+--Modify owners table
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
 
 
 -- Make sure that id is set as autoincremented PRIMARY KEY
@@ -69,6 +67,9 @@ ALTER TABLE animals
 DROP COLUMN id;
 
 
+
+
+
 ---------------------------------------------------------------------------------------------------------------------- (edited) 
                                              DAY 4
 
@@ -94,3 +95,10 @@ CREATE TABLE visits (
    FOREIGN KEY (animal_id) REFERENCES animals(id),
    FOREIGN KEY (vet_id) REFERENCES vetS(id)
 );
+
+----------------------------------------------------------------------------------------------
+
+                                     ---WEEK 2 -- DAY 1 
+  CREATE INDEX ON visits (animal_id);
+  CREATE INDEX ON visits (vet_id),
+  CREATE INDEX ON owners (email);                                   
