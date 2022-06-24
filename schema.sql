@@ -7,15 +7,11 @@ CREATE TABLE animals(
    escape_attempts INT    NOT NULL,
    neutered       BOOLEAN NOT NULL,
    weight_kg      DECIMAL NOT NULL,
+   species_id INT NOT NULL,
+   owner_id INT NOT NULL
 );
 
--- ADD species column to animals table schema
-
-ALTER TABLE animals ADD species VARCHAR;
-
 ---------------------------------------------------------------------------------------
-
---Modify animals table--
 
 --create species table
 CREATE TABLE species(
@@ -27,18 +23,10 @@ CREATE TABLE species(
 CREATE TABLE owners(
    animal_owner_id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY NOT NULL,
    full_name  VARCHAR  NOT NULL,
+   email VARCHAR(120)
 );
---Modify owners table
-ALTER TABLE owners ADD COLUMN email VARCHAR(120);
 
 
--- Make sure that id is set as autoincremented PRIMARY KEY
-ALTER TABLE animals
-ADD COLUMN id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY NOT NULL;
-
-
---Remove column species
-ALTER TABLE animals DROP COLUMN species;
 
 -- Add column species_id which is a foreign key referencing species table
 ALTER TABLE animals 
